@@ -11,6 +11,7 @@
 		5917E5E428F665B0002FBD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5917E5E328F665B0002FBD79 /* Assets.xcassets */; };
 		5917E5E728F665B0002FBD79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5917E5E628F665B0002FBD79 /* Preview Assets.xcassets */; };
 		5917E5F228F6E09A002FBD79 /* CurrentUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917E5F128F6E09A002FBD79 /* CurrentUserStore.swift */; };
+		591BCE8D294F7EDA00E1A424 /* ProblemSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591BCE8C294F7EDA00E1A424 /* ProblemSolution.swift */; };
 		5920E0E72942006B00C70726 /* ProblemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5920E0E62942006B00C70726 /* ProblemList.swift */; };
 		592784DB29227D5E00347BDD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 592784DA29227D5E00347BDD /* Kingfisher */; };
 		592784E329227E9A00347BDD /* CodeMirror-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 592784E229227E9A00347BDD /* CodeMirror-SwiftUI */; };
@@ -49,8 +50,9 @@
 		5917E5DF28F665AD002FBD79 /* LeetCodingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCodingApp.swift; sourceTree = "<group>"; };
 		5917E5E328F665B0002FBD79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5917E5E628F665B0002FBD79 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5917E5E828F665B0002FBD79 /* LeetCoding.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LeetCoding.entitlements; sourceTree = "<group>"; };
+		5917E5E828F665B0002FBD79 /* CodeIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeIt.entitlements; sourceTree = "<group>"; };
 		5917E5F128F6E09A002FBD79 /* CurrentUserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserStore.swift; sourceTree = "<group>"; };
+		591BCE8C294F7EDA00E1A424 /* ProblemSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProblemSolution.swift; path = CodeIt/View/Problem/ProblemSolution.swift; sourceTree = SOURCE_ROOT; };
 		5920E0E62942006B00C70726 /* ProblemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemList.swift; sourceTree = "<group>"; };
 		59288A6728F6E67100B06773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		59472B2C294F23960075D267 /* HtmlText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlText.swift; sourceTree = "<group>"; };
@@ -85,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				59288A6828F6E73600B06773 /* Packages */,
-				5917E5DE28F665AD002FBD79 /* LeetCoding */,
+				5917E5DE28F665AD002FBD79 /* CodeIt */,
 				5917E5DD28F665AD002FBD79 /* Products */,
 				59D61FB728F7B524007E5C42 /* Frameworks */,
 			);
@@ -99,7 +101,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5917E5DE28F665AD002FBD79 /* LeetCoding */ = {
+		5917E5DE28F665AD002FBD79 /* CodeIt */ = {
 			isa = PBXGroup;
 			children = (
 				59472B2B294F23850075D267 /* Common */,
@@ -109,10 +111,10 @@
 				5917E5EE28F665BB002FBD79 /* Api */,
 				5917E5DF28F665AD002FBD79 /* LeetCodingApp.swift */,
 				5917E5E328F665B0002FBD79 /* Assets.xcassets */,
-				5917E5E828F665B0002FBD79 /* LeetCoding.entitlements */,
+				5917E5E828F665B0002FBD79 /* CodeIt.entitlements */,
 				5917E5E528F665B0002FBD79 /* Preview Content */,
 			);
-			path = LeetCoding;
+			path = CodeIt;
 			sourceTree = "<group>";
 		};
 		5917E5E528F665B0002FBD79 /* Preview Content */ = {
@@ -190,6 +192,7 @@
 				59B02CE7291A81230043A093 /* ProblemListView.swift */,
 				59EC5C9E2949EC34005B9487 /* ProblemListCellView.swift */,
 				59E9AF0F294EDF710036D5BA /* ProblemDetailView.swift */,
+				591BCE8C294F7EDA00E1A424 /* ProblemSolution.swift */,
 			);
 			path = Problem;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				59B02CE6291A7EA80043A093 /* SidebarView.swift in Sources */,
 				59472B2D294F23960075D267 /* HtmlText.swift in Sources */,
 				59D61FB628F6F683007E5C42 /* UserProfile.swift in Sources */,
+				591BCE8D294F7EDA00E1A424 /* ProblemSolution.swift in Sources */,
 				59B02CE8291A81230043A093 /* ProblemListView.swift in Sources */,
 				5917E5E028F665AD002FBD79 /* LeetCodingApp.swift in Sources */,
 				59E9AF0C294EC79E0036D5BA /* Test.swift in Sources */,
@@ -416,7 +420,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = LeetCoding/LeetCoding.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CodeIt/CodeIt.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -445,7 +450,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = LeetCoding/LeetCoding.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CodeIt/CodeIt.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

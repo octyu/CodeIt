@@ -25,6 +25,8 @@ struct ProblemDetailView: View {
                         Spacer()
                     }
                     HTMLText(text: detail.content)
+                    Spacer()
+                    ProblemSolutionView().frame(height: 600)
                 }
             }.task {
                 await loadData()

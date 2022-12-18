@@ -21,12 +21,6 @@ struct SidebarView: View {
         
         VStack {
             
-            if let _ = currentUser.userProfile {
-                profileView
-            } else {
-                loginView
-            }
-            
             List() {
                 Section() {
                     NavigationLink(destination: ProblemListView(), tag: 0, selection: $selection) {
@@ -41,18 +35,19 @@ struct SidebarView: View {
                     }
                 }
             }
+            Spacer()
+            
+            if let _ = currentUser.userProfile {
+                profileView
+            } else {
+                loginView
+            }
         }
     }
     
     var loginView: some View {
         
         HStack {
-            Image(systemName: "poweroutlet.type.f")
-                .resizable()
-                .frame(width: 48, height: 48)
-                .mask(RoundedRectangle(cornerRadius: 8))
-                .padding([.leading], 5)
-            
             Spacer()
             
             Button(action: {
@@ -61,9 +56,15 @@ struct SidebarView: View {
                 Text("未登陆")
             }.sheet(isPresented: $showLoginView) {
                 LoginCookieView(showLoginView: $showLoginView, userCookie: $userCookie)
-            }.padding([.trailing], 20)
+            }.padding([.trailing], 2)
             
-        }.padding(20)
+            Image(systemName: "poweroutlet.type.f")
+                .resizable()
+                .frame(width: 16, height: 16)
+                .mask(RoundedRectangle(cornerRadius: 8))
+                .padding([.leading], 2)
+            
+        }.padding(15)
     }
     
     var profileView: some View {
