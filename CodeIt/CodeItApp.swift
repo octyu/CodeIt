@@ -13,7 +13,7 @@ func log(_ log: String) -> EmptyView {
 }
 
 @main
-struct LeetCodingApp: App {
+struct CodeItApp: App {
     var body: some Scene {
         
         WindowGroup {

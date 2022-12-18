@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5917E5E028F665AD002FBD79 /* LeetCodingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917E5DF28F665AD002FBD79 /* LeetCodingApp.swift */; };
+		5917E5E028F665AD002FBD79 /* CodeItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917E5DF28F665AD002FBD79 /* CodeItApp.swift */; };
 		5917E5E428F665B0002FBD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5917E5E328F665B0002FBD79 /* Assets.xcassets */; };
 		5917E5E728F665B0002FBD79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5917E5E628F665B0002FBD79 /* Preview Assets.xcassets */; };
 		5917E5F228F6E09A002FBD79 /* CurrentUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917E5F128F6E09A002FBD79 /* CurrentUserStore.swift */; };
@@ -47,7 +47,7 @@
 
 /* Begin PBXFileReference section */
 		5917E5DC28F665AD002FBD79 /* CodeIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5917E5DF28F665AD002FBD79 /* LeetCodingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCodingApp.swift; sourceTree = "<group>"; };
+		5917E5DF28F665AD002FBD79 /* CodeItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeItApp.swift; sourceTree = "<group>"; };
 		5917E5E328F665B0002FBD79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5917E5E628F665B0002FBD79 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5917E5E828F665B0002FBD79 /* CodeIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeIt.entitlements; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 				59288A6728F6E67100B06773 /* Info.plist */,
 				5917E5F028F6E077002FBD79 /* Store */,
 				5917E5EE28F665BB002FBD79 /* Api */,
-				5917E5DF28F665AD002FBD79 /* LeetCodingApp.swift */,
+				5917E5DF28F665AD002FBD79 /* CodeItApp.swift */,
 				5917E5E328F665B0002FBD79 /* Assets.xcassets */,
 				5917E5E828F665B0002FBD79 /* CodeIt.entitlements */,
 				5917E5E528F665B0002FBD79 /* Preview Content */,
@@ -288,7 +288,7 @@
 				59D61FB628F6F683007E5C42 /* UserProfile.swift in Sources */,
 				591BCE8D294F7EDA00E1A424 /* ProblemSolution.swift in Sources */,
 				59B02CE8291A81230043A093 /* ProblemListView.swift in Sources */,
-				5917E5E028F665AD002FBD79 /* LeetCodingApp.swift in Sources */,
+				5917E5E028F665AD002FBD79 /* CodeItApp.swift in Sources */,
 				59E9AF0C294EC79E0036D5BA /* Test.swift in Sources */,
 				59D61FBE28F7BA2A007E5C42 /* LoginCookieView.swift in Sources */,
 				5917E5F228F6E09A002FBD79 /* CurrentUserStore.swift in Sources */,
@@ -425,12 +425,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"LeetCoding/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"CodeIt/Preview Content\"";
 				DEVELOPMENT_TEAM = 8WH4533CG7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LeetCoding/Info.plist;
+				INFOPLIST_FILE = CodeIt/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -455,12 +455,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"LeetCoding/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"CodeIt/Preview Content\"";
 				DEVELOPMENT_TEAM = 8WH4533CG7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LeetCoding/Info.plist;
+				INFOPLIST_FILE = CodeIt/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
