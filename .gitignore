@@ -1,0 +1,8 @@
+## Macos
+.DS_store
+
+## Jetbrains
+.idea
+
+## User setting
+xcuserdata
