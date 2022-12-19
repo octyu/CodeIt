@@ -12,6 +12,7 @@
 		5917E5E728F665B0002FBD79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5917E5E628F665B0002FBD79 /* Preview Assets.xcassets */; };
 		5917E5F228F6E09A002FBD79 /* CurrentUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917E5F128F6E09A002FBD79 /* CurrentUserStore.swift */; };
 		591BCE8D294F7EDA00E1A424 /* ProblemSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591BCE8C294F7EDA00E1A424 /* ProblemSolution.swift */; };
+		591BCE91295083D100E1A424 /* CodeLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591BCE90295083D100E1A424 /* CodeLanguage.swift */; };
 		5920E0E72942006B00C70726 /* ProblemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5920E0E62942006B00C70726 /* ProblemList.swift */; };
 		592784DB29227D5E00347BDD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 592784DA29227D5E00347BDD /* Kingfisher */; };
 		592784E329227E9A00347BDD /* CodeMirror-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 592784E229227E9A00347BDD /* CodeMirror-SwiftUI */; };
@@ -53,6 +54,7 @@
 		5917E5E828F665B0002FBD79 /* CodeIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeIt.entitlements; sourceTree = "<group>"; };
 		5917E5F128F6E09A002FBD79 /* CurrentUserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserStore.swift; sourceTree = "<group>"; };
 		591BCE8C294F7EDA00E1A424 /* ProblemSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProblemSolution.swift; path = CodeIt/View/Problem/ProblemSolution.swift; sourceTree = SOURCE_ROOT; };
+		591BCE90295083D100E1A424 /* CodeLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeLanguage.swift; sourceTree = "<group>"; };
 		5920E0E62942006B00C70726 /* ProblemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemList.swift; sourceTree = "<group>"; };
 		59288A6728F6E67100B06773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		59472B2C294F23960075D267 /* HtmlText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlText.swift; sourceTree = "<group>"; };
@@ -153,6 +155,22 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
+		591BCE8E295083AA00E1A424 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				59472B2C294F23960075D267 /* HtmlText.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		591BCE8F295083B100E1A424 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				591BCE90295083D100E1A424 /* CodeLanguage.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		59288A6828F6E73600B06773 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,7 +181,8 @@
 		59472B2B294F23850075D267 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				59472B2C294F23960075D267 /* HtmlText.swift */,
+				591BCE8F295083B100E1A424 /* Enum */,
+				591BCE8E295083AA00E1A424 /* Component */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -293,6 +312,7 @@
 				59D61FBE28F7BA2A007E5C42 /* LoginCookieView.swift in Sources */,
 				5917E5F228F6E09A002FBD79 /* CurrentUserStore.swift in Sources */,
 				59EC5C9F2949EC34005B9487 /* ProblemListCellView.swift in Sources */,
+				591BCE91295083D100E1A424 /* CodeLanguage.swift in Sources */,
 				59E9AF0E294EDBE00036D5BA /* ProblemDetail.swift in Sources */,
 				5920E0E72942006B00C70726 /* ProblemList.swift in Sources */,
 				59D61FE428FEDB91007E5C42 /* HttpResponse.swift in Sources */,
