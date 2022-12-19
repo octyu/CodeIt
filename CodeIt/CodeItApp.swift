@@ -8,9 +8,6 @@
 import SwiftUI
 
 var leetCode = LeetCodeApi()
-func log(_ log: String) -> EmptyView {
-    return EmptyView()
-}
 
 @main
 struct CodeItApp: App {

@@ -30,7 +30,7 @@ public class CurrentUserStore: ObservableObject {
     }
     
     public func readCookie() -> String? {
-        return keychain[keychainCookieKey]
+        keychain[keychainCookieKey]
     }
     
     public func saveCookie(cookie: String) {
