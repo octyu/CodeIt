@@ -11,6 +11,8 @@ import CodeMirror_SwiftUI
 
 struct ProblemSolutionView: View {
     
+    public var codeSnippets: [ProblemDetail.CodeSnippet]
+    
     @State private var codeBlock = ""
     @State private var selectedLanguage = 0
     @State private var selectedTheme = 0
@@ -22,6 +24,10 @@ struct ProblemSolutionView: View {
       return $0.rawValue < $1.rawValue
     }
     private var languages = CodeLanguage.list()
+    
+    public init(codeSnippets: [ProblemDetail.CodeSnippet]) {
+        self.codeSnippets = codeSnippets;
+    }
     
     var body: some View {
       VStack {
