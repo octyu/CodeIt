@@ -11,10 +11,14 @@ import CodeMirror_SwiftUI
 
 struct ProblemSolutionView: View {
     
-    public var codeSnippets: [ProblemDetail.CodeSnippet]
+    public var codeSnippetsDict: [String: ProblemDetail.CodeSnippet]
     
     @State private var codeBlock = ""
-    @State private var selectedLanguage = 0
+    @State private var selectedLanguage = 0 {
+        willSet {
+            codeBlock = codeSnippetsDict[languages[selectedLanguage].rawValue]?.code ?? ""
+        }
+    }
     @State private var selectedTheme = 0
     @State private var fontSize = 12
     @State private var showInvisibleCharacters = true
@@ -25,8 +29,8 @@ struct ProblemSolutionView: View {
     }
     private var languages = CodeLanguage.list()
     
-    public init(codeSnippets: [ProblemDetail.CodeSnippet]) {
-        self.codeSnippets = codeSnippets;
+    public init(codeSnippetsDict: [String: ProblemDetail.CodeSnippet]) {
+        self.codeSnippetsDict = codeSnippetsDict;
     }
     
     var body: some View {
@@ -78,7 +82,7 @@ struct ProblemSolutionView: View {
           ScrollView {
             CodeView(theme: themes[selectedTheme],
                      code: $codeBlock,
-                     mode: languages[selectedLanguage].mode(),
+                     mode: languages[selectedLanguage ?? 0].mode(),
                      fontSize: fontSize,
                      showInvisibleCharacters: showInvisibleCharacters,
                      lineWrapping: lineWrapping)

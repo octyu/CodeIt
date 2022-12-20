@@ -33,6 +33,14 @@ public struct ProblemDetail: Decodable {
             case title, content, codeSnippets
             case id = "questionId"
         }
+        
+        public func getCodeSnippetsDict() -> [String : CodeSnippet] {
+            var dict = [String : CodeSnippet]()
+            for codeSnippet in codeSnippets {
+                dict[codeSnippet.lang] = codeSnippet
+            }
+            return dict
+        }
     }
     
     public struct CodeSnippet: Decodable {
@@ -46,6 +54,8 @@ public struct ProblemDetail: Decodable {
             self.langSlug = langSlug
             self.code = code
         }
+        
+        public 
         
         enum CodingKeys: String, CodingKey {
             case lang, langSlug, code

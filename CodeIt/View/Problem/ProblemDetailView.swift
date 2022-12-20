@@ -26,7 +26,7 @@ struct ProblemDetailView: View {
                     }
                     HTMLText(text: detail.content)
                     Spacer()
-                    ProblemSolutionView(codeSnippets: detail.codeSnippets)
+                    ProblemSolutionView(codeSnippetsDict: detail.getCodeSnippetsDict())
                         .frame(height: 600)
                 }
             }.task {
