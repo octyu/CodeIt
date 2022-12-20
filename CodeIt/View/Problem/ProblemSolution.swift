@@ -14,14 +14,12 @@ struct ProblemSolutionView: View {
     public var codeSnippetsDict: [String: ProblemDetail.CodeSnippet]
     
     @State private var codeBlock = ""
-    @State private var selectedLanguage = 0 {
-        willSet {
-            codeBlock = codeSnippetsDict[languages[selectedLanguage].rawValue]?.code ?? ""
-        }
-    }
-    @State private var selectedTheme = 0
-    @State private var fontSize = 12
-    @State private var showInvisibleCharacters = true
+    // default to Java
+    @State private var selectedLanguage = 7
+    // default to base16-light
+    @State private var selectedTheme = 5
+    @State private var fontSize = 16
+    @State private var showInvisibleCharacters = false
     @State private var lineWrapping = true
     
     private var themes = CodeViewTheme.allCases.sorted {
@@ -34,73 +32,83 @@ struct ProblemSolutionView: View {
     }
     
     var body: some View {
-      VStack {
-        HStack {
-          Picker(selection: $selectedTheme, label: EmptyView()) {
-            ForEach(0 ..< themes.count) {
-              Text(self.themes[$0].rawValue)
-            }
-          }
-          .frame(minWidth: 100, idealWidth: 150, maxWidth: 150)
+        VStack {
+            HStack {
+                Picker(selection: $selectedTheme, label: EmptyView()) {
+                    ForEach(0 ..< themes.count, id: \.self) { (index) in
+                        Text(self.themes[index].rawValue)
+                    }
+                }
+                .frame(minWidth: 100, idealWidth: 150, maxWidth: 150)
           
-          Spacer()
+                Spacer()
           
-          Button(action: { lineWrapping.toggle() }) { Text("Wrap") }
+                Button(action: { lineWrapping.toggle() }) { Text("Wrap") }
           
-          Spacer()
+                Spacer()
           
-          Toggle(isOn: $showInvisibleCharacters) {
-            Text("Show invisible chars.")
-          }
-          .padding(.trailing, 8)
+                Toggle(isOn: $showInvisibleCharacters) {
+                    Text("Show invisible chars.")
+                }
+                .padding(.trailing, 8)
             
-            Picker(selection: $selectedLanguage, label: Text("language")) {
-                ForEach(0 ..< languages.count) {
-                    Text(self.languages[$0].rawValue)
+                Picker(selection: $selectedLanguage, label: Text("language")) {
+                    ForEach(0 ..< languages.count, id: \.self) { (index) in
+                        Text(self.languages[index].rawValue)
+                    }
+                }.onChange(of: selectedLanguage) { newValue in
+                    setCodeSnippet(lang: newValue)
+                }
+          
+                ZStack {
+                    Button {
+                        fontSize += 1
+                    } label: {}
+                        .padding(0)
+                        .opacity(0)
+                        .frame(width: 0, height: 0)
+                        .keyboardShortcut("+")
+                    Button {
+                        fontSize -= 1
+                    } label: {}
+                        .padding(0)
+                        .opacity(0)
+                        .frame(width: 0, height: 0)
+                        .keyboardShortcut("-")
                 }
             }
-          
-            ZStack {
-                Button {
-                    fontSize += 1
-                } label: {}
-                    .padding(0)
-                    .opacity(0)
-                    .frame(width: 0, height: 0)
-                    .keyboardShortcut("+")
-                Button {
-                    fontSize -= 1
-                } label: {}
-                    .padding(0)
-                    .opacity(0)
-                    .frame(width: 0, height: 0)
-                    .keyboardShortcut("-")
+            .padding()
+            
+            GeometryReader { reader in
+                ScrollView {
+                    CodeView(theme: themes[selectedTheme],
+                             code: $codeBlock,
+                             mode: languages[selectedLanguage].mode(),
+                             fontSize: fontSize,
+                             showInvisibleCharacters: showInvisibleCharacters,
+                             lineWrapping: lineWrapping)
+                    .onLoadSuccess {
+                        print("Loaded")
+                    }
+                    .onContentChange { newCode in
+                        print("Content Change")
+                    }
+                    .onLoadFail { error in
+                        print("Load failed : \(error.localizedDescription)")
+                    }
+                    .frame(height: reader.size.height)
+                    .tag(1)
+                    .onAppear {
+                        setCodeSnippet(lang: self.selectedLanguage)
+                    }
+                }
+                .frame(height: reader.size.height)
             }
         }
-        .padding()
-        GeometryReader { reader in
-          ScrollView {
-            CodeView(theme: themes[selectedTheme],
-                     code: $codeBlock,
-                     mode: languages[selectedLanguage ?? 0].mode(),
-                     fontSize: fontSize,
-                     showInvisibleCharacters: showInvisibleCharacters,
-                     lineWrapping: lineWrapping)
-              .onLoadSuccess {
-                print("Loaded")
-              }
-              .onContentChange { newCode in
-                print("Content Change")
-              }
-              .onLoadFail { error in
-                print("Load failed : \(error.localizedDescription)")
-              }
-              .frame(height: reader.size.height)
-              .tag(1)
-          }.frame(height: reader.size.height)
-        }
-      }
-      
-      .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    private func setCodeSnippet(lang: Int) {
+        self.codeBlock = codeSnippetsDict[languages[lang].rawValue]?.code ?? ""
     }
 }

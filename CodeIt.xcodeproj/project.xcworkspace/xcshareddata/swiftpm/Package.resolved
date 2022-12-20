@@ -10,15 +10,6 @@
       }
     },
     {
-      "identity" : "codemirror-swiftui",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Pictarine/CodeMirror-SwiftUI",
-      "state" : {
-        "revision" : "91eb30d2ea54c136de2540cacaeb95b9ab5de8e0",
-        "version" : "0.1.6"
-      }
-    },
-    {
       "identity" : "keychainaccess",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kishikawakatsumi/KeychainAccess",
