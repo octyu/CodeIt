@@ -100,6 +100,7 @@ struct ProblemSolutionView: View {
                          lineWrapping: lineWrapping)
                 .onLoadSuccess {
                     print("Loaded")
+                    setCodeSnippet(lang: self.selectedLanguage)
                 }
                 .onContentChange { newCode in
                     print("Content Change")
@@ -109,9 +110,6 @@ struct ProblemSolutionView: View {
                 }
                 .frame(height: reader.size.height)
                 .tag(1)
-                .onAppear {
-                    setCodeSnippet(lang: self.selectedLanguage)
-                }
             }
             .frame(height: reader.size.height)
         }
