@@ -34,78 +34,87 @@ struct ProblemSolutionView: View {
     var body: some View {
         VStack {
             HStack {
-                Picker(selection: $selectedTheme, label: EmptyView()) {
-                    ForEach(0 ..< themes.count, id: \.self) { (index) in
-                        Text(self.themes[index].rawValue)
-                    }
-                }
-                .frame(minWidth: 100, idealWidth: 150, maxWidth: 150)
-          
+                themePicker
                 Spacer()
-          
                 Button(action: { lineWrapping.toggle() }) { Text("Wrap") }
-          
                 Spacer()
-          
                 Toggle(isOn: $showInvisibleCharacters) {
                     Text("Show invisible chars.")
                 }
                 .padding(.trailing, 8)
-            
-                Picker(selection: $selectedLanguage, label: Text("language")) {
-                    ForEach(0 ..< languages.count, id: \.self) { (index) in
-                        Text(self.languages[index].rawValue)
-                    }
-                }.onChange(of: selectedLanguage) { newValue in
-                    setCodeSnippet(lang: newValue)
-                }
-          
-                ZStack {
-                    Button {
-                        fontSize += 1
-                    } label: {}
-                        .padding(0)
-                        .opacity(0)
-                        .frame(width: 0, height: 0)
-                        .keyboardShortcut("+")
-                    Button {
-                        fontSize -= 1
-                    } label: {}
-                        .padding(0)
-                        .opacity(0)
-                        .frame(width: 0, height: 0)
-                        .keyboardShortcut("-")
-                }
+                languagePicker
+                fontSizeKeyboardShortcut
             }
             .padding()
-            
-            GeometryReader { reader in
-                ScrollView {
-                    CodeView(theme: themes[selectedTheme],
-                             code: $codeBlock,
-                             mode: languages[selectedLanguage].mode(),
-                             fontSize: fontSize,
-                             showInvisibleCharacters: showInvisibleCharacters,
-                             lineWrapping: lineWrapping)
-                    .onLoadSuccess {
-                        print("Loaded")
-                    }
-                    .onContentChange { newCode in
-                        print("Content Change")
-                    }
-                    .onLoadFail { error in
-                        print("Load failed : \(error.localizedDescription)")
-                    }
-                    .frame(height: reader.size.height)
-                    .tag(1)
-                    .onAppear {
-                        setCodeSnippet(lang: self.selectedLanguage)
-                    }
-                }
-                .frame(height: reader.size.height)
-            }
+            editor
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    var themePicker: some View {
+        Picker(selection: $selectedTheme, label: EmptyView()) {
+            ForEach(0 ..< themes.count, id: \.self) { (index) in
+                Text(self.themes[index].rawValue)
+            }
+        }
+        .frame(minWidth: 100, idealWidth: 150, maxWidth: 150)
+    }
+    
+    var languagePicker: some View {
+        Picker(selection: $selectedLanguage, label: Text("language")) {
+            ForEach(0 ..< languages.count, id: \.self) { (index) in
+                Text(self.languages[index].rawValue)
+            }
+        }.onChange(of: selectedLanguage) { newValue in
+            setCodeSnippet(lang: newValue)
+        }
+    }
+    
+    var fontSizeKeyboardShortcut: some View {
+        ZStack {
+            Button {
+                fontSize += 1
+            } label: {}
+                .padding(0)
+                .opacity(0)
+                .frame(width: 0, height: 0)
+                .keyboardShortcut("+")
+            Button {
+                fontSize -= 1
+            } label: {}
+                .padding(0)
+                .opacity(0)
+                .frame(width: 0, height: 0)
+                .keyboardShortcut("-")
+        }
+    }
+    
+    var editor: some View {
+        GeometryReader { reader in
+            ScrollView {
+                CodeView(theme: themes[selectedTheme],
+                         code: $codeBlock,
+                         mode: languages[selectedLanguage].mode(),
+                         fontSize: fontSize,
+                         showInvisibleCharacters: showInvisibleCharacters,
+                         lineWrapping: lineWrapping)
+                .onLoadSuccess {
+                    print("Loaded")
+                }
+                .onContentChange { newCode in
+                    print("Content Change")
+                }
+                .onLoadFail { error in
+                    print("Load failed : \(error.localizedDescription)")
+                }
+                .frame(height: reader.size.height)
+                .tag(1)
+                .onAppear {
+                    setCodeSnippet(lang: self.selectedLanguage)
+                }
+            }
+            .frame(height: reader.size.height)
+        }
     }
     
     private func setCodeSnippet(lang: Int) {
