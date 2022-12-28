@@ -11,6 +11,7 @@ import CodeMirror_SwiftUI
 
 struct ProblemSolutionView: View {
     
+    public var problemDetail: ProblemDetail.Problem
     public var codeSnippetsDict: [String: ProblemDetail.CodeSnippet]
     
     @State private var codeBlock = ""
@@ -27,8 +28,9 @@ struct ProblemSolutionView: View {
     }
     private var languages = CodeLanguage.list()
     
-    public init(codeSnippetsDict: [String: ProblemDetail.CodeSnippet]) {
-        self.codeSnippetsDict = codeSnippetsDict;
+    public init(problemDetail: ProblemDetail.Problem) {
+        self.problemDetail = problemDetail
+        self.codeSnippetsDict = problemDetail.getCodeSnippetsDict()
     }
     
     var body: some View {
@@ -47,6 +49,15 @@ struct ProblemSolutionView: View {
             }
             .padding()
             editor
+            
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.submitSolution()
+                }) {
+                    Text("提交")
+                }
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -117,5 +128,21 @@ struct ProblemSolutionView: View {
     
     private func setCodeSnippet(lang: Int) {
         self.codeBlock = codeSnippetsDict[languages[lang].rawValue]?.code ?? ""
+    }
+    
+    private func submitSolution() {
+        Task {
+            do {
+                let lang = codeSnippetsDict[languages[selectedLanguage].rawValue]?.langSlug ?? ""
+                
+                if let res = try await leetCode.submitSolution(questionId: problemDetail.id, lang: lang, code: codeBlock, questionSlug: problemDetail.titleSlug) {
+                    DispatchQueue.main.async {
+                        print(res.submissionId)
+                    }
+                }
+            } catch {
+                return
+            }
+        }
     }
 }

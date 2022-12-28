@@ -20,7 +20,8 @@ public struct LeetCodeApi {
      */
     private func request<T>(httpMethod: String = "GET", url: String,
                             args: [String: Any]? = nil,
-                            decodeClass: T.Type) async throws -> (T?, URLResponse?) where T : Decodable {
+                            decodeClass: T.Type,
+                            origin: String? = nil) async throws -> (T?, URLResponse?) where T : Decodable {
         let urlComponents = NSURLComponents(string: url)!
       
         if httpMethod != postHttpMethod && args != nil {
@@ -34,9 +35,14 @@ public struct LeetCodeApi {
         var request = URLRequest(url: requestUrl)
         request.httpMethod = httpMethod
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("origin", forHTTPHeaderField: "https://leetcode.cn")
         
         if let cookie = cookie {
             request.addValue(cookie, forHTTPHeaderField: "Cookie")
+        }
+        
+        if let origin = origin {
+            request.addValue(origin, forHTTPHeaderField: "origin")
         }
         
         if httpMethod == postHttpMethod && args != nil {
@@ -94,6 +100,26 @@ public struct LeetCodeApi {
                 
             ],
             decodeClass: HttpResponse<ProblemDetail>.self
+        )
+        return data
+    }
+    
+    public func submitSolution(questionId: String, lang: String,
+                               code: String, questionSlug: String) async throws -> SubmitSolutionResponse? {
+        let url = "https://leetcode.cn/problems/" + questionSlug + "/submit/"
+        let (data, _) = try await request(
+            httpMethod: postHttpMethod,
+            url: url,
+            args: [
+                "question_id": questionId,
+                "lang": lang,
+                "typed_code": code,
+                "test_mode": false,
+                "test_judger": "",
+                "questionSlug": questionSlug
+            ],
+            decodeClass: SubmitSolutionResponse.self,
+            origin: "https://leetcode.cn"
         )
         return data
     }

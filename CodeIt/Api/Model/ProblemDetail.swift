@@ -19,18 +19,20 @@ public struct ProblemDetail: Decodable {
         
         public let id: String
         public let title: String
+        public let titleSlug: String
         public let content: String
         public let codeSnippets: [CodeSnippet]
         
-        public init(id: String, title: String, content: String, codeSnippets: [CodeSnippet]) {
+        public init(id: String, title: String, titleSlug: String, content: String, codeSnippets: [CodeSnippet]) {
             self.id = id
             self.title = title
+            self.titleSlug = titleSlug
             self.content = content
             self.codeSnippets = codeSnippets
         }
         
         enum CodingKeys: String, CodingKey {
-            case title, content, codeSnippets
+            case title, titleSlug, content, codeSnippets
             case id = "questionId"
         }
         
@@ -54,8 +56,6 @@ public struct ProblemDetail: Decodable {
             self.langSlug = langSlug
             self.code = code
         }
-        
-        public 
         
         enum CodingKeys: String, CodingKey {
             case lang, langSlug, code
