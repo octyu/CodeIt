@@ -106,7 +106,7 @@ public struct LeetCodeApi {
     
     public func submitSolution(questionId: String, lang: String,
                                code: String, questionSlug: String) async throws -> SubmitSolutionResponse? {
-        let url = String(format: "https://leetcode.cn/problems/%s/submit/", questionSlug)
+        let url = "https://leetcode.cn/problems/\(questionSlug)/submit/"
         let (data, _) = try await request(
             httpMethod: postHttpMethod,
             url: url,
@@ -125,7 +125,7 @@ public struct LeetCodeApi {
     }
     
     public func getSubmissionDetail(submissionId: Int) async throws -> SubmissionDetail? {
-        let url = String(format: "https://leetcode.cn/submissions/detail/%d/check/", submissionId)
+        let url = "https://leetcode.cn/submissions/detail/\(submissionId)/check/"
         let (data, _) = try await request(
             url: url,
             decodeClass: SubmissionDetail.self

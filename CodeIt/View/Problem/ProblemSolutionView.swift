@@ -141,7 +141,7 @@ struct ProblemSolutionView: View {
                 if let res = try await leetCode.submitSolution(questionId: problemDetail.id, lang: lang, code: codeBlock, questionSlug: problemDetail.titleSlug) {
                     DispatchQueue.main.async {
                         let submissionId = res.submissionId
-//                        getSubmissionResult(submissionId: submissionId)
+                        getSubmissionResult(submissionId: 391534851)
                                 
                     }
                 }
@@ -154,12 +154,10 @@ struct ProblemSolutionView: View {
     private func getSubmissionResult(submissionId: Int) {
         Task {
             do {
-                let lang = codeSnippetsDict[languages[selectedLanguage].rawValue]?.langSlug ?? ""
-                
                 if let res = try await leetCode.getSubmissionDetail(submissionId: submissionId) {
                     DispatchQueue.main.async {
                         print(res)
-                        self.submissionMsg = res.statusMsg
+                        self.submissionMsg = res.state
                     }
                 }
             } catch {
