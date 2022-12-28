@@ -14,6 +14,8 @@ struct ProblemSolutionView: View {
     public var problemDetail: ProblemDetail.Problem
     public var codeSnippetsDict: [String: ProblemDetail.CodeSnippet]
     
+    @State private var submissionMsg = "Init"
+    
     @State private var codeBlock = ""
     // default to Java
     @State private var selectedLanguage = 7
@@ -51,6 +53,7 @@ struct ProblemSolutionView: View {
             editor
             
             HStack {
+                Text("Status: \(submissionMsg)")
                 Spacer()
                 Button(action: {
                     self.submitSolution()
@@ -137,7 +140,26 @@ struct ProblemSolutionView: View {
                 
                 if let res = try await leetCode.submitSolution(questionId: problemDetail.id, lang: lang, code: codeBlock, questionSlug: problemDetail.titleSlug) {
                     DispatchQueue.main.async {
-                        print(res.submissionId)
+                        let submissionId = res.submissionId
+//                        getSubmissionResult(submissionId: submissionId)
+                                
+                    }
+                }
+            } catch {
+                return
+            }
+        }
+    }
+    
+    private func getSubmissionResult(submissionId: Int) {
+        Task {
+            do {
+                let lang = codeSnippetsDict[languages[selectedLanguage].rawValue]?.langSlug ?? ""
+                
+                if let res = try await leetCode.getSubmissionDetail(submissionId: submissionId) {
+                    DispatchQueue.main.async {
+                        print(res)
+                        self.submissionMsg = res.statusMsg
                     }
                 }
             } catch {
