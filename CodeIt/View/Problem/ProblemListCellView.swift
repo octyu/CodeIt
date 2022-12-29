@@ -22,7 +22,7 @@ struct ProblemListCellView: View {
                     Text("\(problem.id). \(problem.title)").lineLimit(1).font(Font.body.bold())
                     Spacer()
                     HStack(spacing: 6) {
-                        Label("22312", systemImage: "doc.text")
+                        Label("Easy", systemImage: "flag.checkered").foregroundColor(Color.green)
                         Spacer()
                         ProblemListCellTagView(text: "Hash Table")
                         ProblemListCellTagView(text: "Array")
