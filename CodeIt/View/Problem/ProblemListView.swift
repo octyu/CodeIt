@@ -33,11 +33,18 @@ struct ProblemListView: View {
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 Button {
+                    
+                } label: {
+                    Image(systemName: "abc")
+                }.help("Language Switch")
+                
+                Button {
                     // action
                 } label: {
                     Image(systemName: "sidebar.left")
                 }
                 .help("Toggle Sidebar")
+                
             }
         }
  
