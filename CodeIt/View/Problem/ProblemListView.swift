@@ -19,12 +19,12 @@ struct ProblemListView: View {
                 if let problems = problems {
                     ForEach(problems) { problem in
                         ProblemListCellView(problem: problem)
+                            .frame(minHeight: 66)
                     }
                 }
             }
             .listStyle(.inset)
-            .frame(minWidth: 270, idealWidth: 500)
-            .foregroundColor(.black)
+            .frame(minWidth: 300, idealWidth: 500)
         }.task {
             await loadData()
         }

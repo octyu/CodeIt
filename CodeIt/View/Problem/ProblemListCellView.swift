@@ -17,10 +17,24 @@ struct ProblemListCellView: View {
         NavigationLink {
             ProblemDetailView(problem: problem)
         } label: {
-            VStack(alignment: .leading, spacing: 6) {
-                Text("\(problem.id). \(problem.title)")
+            VStack {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("\(problem.id). \(problem.title)").lineLimit(1).font(Font.body.bold())
+                    Spacer()
+                    HStack(spacing: 6) {
+                        Label("22312", systemImage: "doc.text")
+                        Spacer()
+                        ProblemListCellTagView(text: "Hash Table")
+                        ProblemListCellTagView(text: "Array")
+                    }
+                }
+                .padding([.leading, .trailing], 4)
+                .padding([.top, .bottom], 2)
+                Divider()
             }
+
         }
+        .buttonStyle(PlainButtonStyle())
 
     }
 }
