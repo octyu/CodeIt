@@ -14,6 +14,7 @@ struct ProblemListCellTagView: View {
     
     var body: some View {
         Text(text)
+            .lineLimit(1)
             .font(.system(size: 12))
             .padding(.leading, 4)
             .padding(.trailing, 4)

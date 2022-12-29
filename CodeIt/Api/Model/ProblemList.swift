@@ -39,17 +39,32 @@ public struct ProblemList: Decodable {
         public let id: String
         public let title: String
         public let titleSlug: String
-        
-        public init(id: String, title: String, titleSlug: String) {
-            self.id = id
-            self.title = title
-            self.titleSlug = titleSlug
-            
-        }
+        public let difficulty: ProblemDifficulty
+        public let topicTags: [TopicTag]
+        public let acRate: Float
+        public let solutionNum: Int
+        public let status: ProblemAcState
         
         enum CodingKeys: String, CodingKey {
-            case title, titleSlug
+            case title, titleSlug, difficulty, topicTags, acRate, solutionNum, status
             case id = "frontendQuestionId"
+        }
+        
+        public func acRatePercent() -> String {
+            let p = String(format: "%.1f", acRate * 100)
+            return "\(p)%"
+        }
+    }
+    
+    public struct TopicTag: Identifiable, Decodable {
+        
+        public let id: String
+        public let name: String
+        public let slug: String
+        public let nameTranslated: String
+        
+        enum CodingKeys: String, CodingKey {
+            case id, name, slug, nameTranslated
         }
     }
 }

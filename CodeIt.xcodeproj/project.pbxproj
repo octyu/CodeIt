@@ -18,6 +18,8 @@
 		59279DEF295C410E0039F233 /* SubmitSolutionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DEE295C410E0039F233 /* SubmitSolutionResponse.swift */; };
 		59279DF1295C66240039F233 /* SubmissionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DF0295C66240039F233 /* SubmissionDetail.swift */; };
 		59279DF3295D79330039F233 /* ProblemListCellTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DF2295D79330039F233 /* ProblemListCellTagView.swift */; };
+		59279DF5295DE33E0039F233 /* ProblemDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DF4295DE33E0039F233 /* ProblemDifficulty.swift */; };
+		59279DF7295DF85E0039F233 /* ProblemAcState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DF6295DF85E0039F233 /* ProblemAcState.swift */; };
 		59472B2D294F23960075D267 /* HtmlText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472B2C294F23960075D267 /* HtmlText.swift */; };
 		59472B30294F29C90075D267 /* Atributika in Frameworks */ = {isa = PBXBuildFile; productRef = 59472B2F294F29C90075D267 /* Atributika */; };
 		599E64F12922807000B59B28 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 599E64F02922807000B59B28 /* KeychainAccess */; };
@@ -62,6 +64,8 @@
 		59279DEE295C410E0039F233 /* SubmitSolutionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitSolutionResponse.swift; sourceTree = "<group>"; };
 		59279DF0295C66240039F233 /* SubmissionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionDetail.swift; sourceTree = "<group>"; };
 		59279DF2295D79330039F233 /* ProblemListCellTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemListCellTagView.swift; sourceTree = "<group>"; };
+		59279DF4295DE33E0039F233 /* ProblemDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemDifficulty.swift; sourceTree = "<group>"; };
+		59279DF6295DF85E0039F233 /* ProblemAcState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemAcState.swift; sourceTree = "<group>"; };
 		59288A6728F6E67100B06773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		59472B2C294F23960075D267 /* HtmlText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlText.swift; sourceTree = "<group>"; };
 		59B02CE5291A7EA80043A093 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				591BCE90295083D100E1A424 /* CodeLanguage.swift */,
+				59279DF4295DE33E0039F233 /* ProblemDifficulty.swift */,
+				59279DF6295DF85E0039F233 /* ProblemAcState.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 			files = (
 				59279DF1295C66240039F233 /* SubmissionDetail.swift in Sources */,
 				59E9AF10294EDF710036D5BA /* ProblemDetailView.swift in Sources */,
+				59279DF5295DE33E0039F233 /* ProblemDifficulty.swift in Sources */,
 				59D61FBB28F7B5D6007E5C42 /* LeetCodeApi.swift in Sources */,
 				59B02CE6291A7EA80043A093 /* SidebarView.swift in Sources */,
 				59472B2D294F23960075D267 /* HtmlText.swift in Sources */,
@@ -328,6 +335,7 @@
 				59E9AF0E294EDBE00036D5BA /* ProblemDetail.swift in Sources */,
 				5920E0E72942006B00C70726 /* ProblemList.swift in Sources */,
 				59D61FE428FEDB91007E5C42 /* HttpResponse.swift in Sources */,
+				59279DF7295DF85E0039F233 /* ProblemAcState.swift in Sources */,
 				59279DEF295C410E0039F233 /* SubmitSolutionResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
