@@ -18,6 +18,7 @@ struct CodeItApp: App {
                 SidebarView()
             }
             .environmentObject(CurrentUserStore.shared)
+            .environmentObject(ProblemListStore.shared)
             
         }
 //        .windowStyle(HiddenTitleBarWindowStyle())

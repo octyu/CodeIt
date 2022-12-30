@@ -9,24 +9,25 @@ import Foundation
 import SwiftUI
 
 struct ProblemListView: View {
-    
-    @State var problems: [ProblemList.Problem]?
+
+    @ObservedObject var problemStore: ProblemListStore
     
     var body: some View {
         
         NavigationView {
-            List {
-                if let problems = problems {
-                    ForEach(problems) { problem in
-                        ProblemListCellView(problem: problem)
-                            .frame(minHeight: 66)
+            List{
+                let problems = problemStore.data
+                ForEach(0..<problems.count, id: \.self) {i in
+                    if i == problems.count - 1 {
+                        ProblemListCellView(problem: problems[i], isLast: true, problemStore: problemStore).frame(minHeight: 66)
+                    } else {
+                        ProblemListCellView(problem: problems[i], isLast: false, problemStore: problemStore).frame(minHeight: 66)
                     }
                 }
             }
             .listStyle(.inset)
             .frame(minWidth: 300, idealWidth: 500)
-        }.task {
-            await loadData()
+
         }
         .navigationTitle("Problems")
         .navigationSubtitle("Solved 547/2200")
@@ -54,17 +55,4 @@ struct ProblemListView: View {
         NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
     }
     
-    func loadData() async {
-        Task {
-            do {
-                if let res = try await leetCode.getProblemList() {
-                    DispatchQueue.main.async {
-                        problems = res.data.problemList.questions
-                    }
-                }
-            } catch {
-                return
-            }
-        }
-    }
 }

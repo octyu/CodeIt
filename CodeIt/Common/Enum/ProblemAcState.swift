@@ -11,4 +11,5 @@ public enum ProblemAcState: String, Codable {
     
     case notStarted = "NOT_STARTED"
     case ac = "AC"
+    case tried = "TRIED"
 }

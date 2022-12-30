@@ -12,6 +12,7 @@ import Kingfisher
 struct SidebarView: View {
     
     @EnvironmentObject var currentUser: CurrentUserStore
+    @EnvironmentObject var problemList: ProblemListStore
     
     @State var selection: Int?
     @State var showLoginView = false
@@ -23,7 +24,7 @@ struct SidebarView: View {
             
             List() {
                 Section() {
-                    NavigationLink(destination: ProblemListView(), tag: 0, selection: $selection) {
+                    NavigationLink(destination: ProblemListView(problemStore: problemList), tag: 0, selection: $selection) {
                         Label("Problems", systemImage: "doc.text")
                     }
                     NavigationLink(destination: TestView()) {
