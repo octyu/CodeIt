@@ -15,9 +15,13 @@ struct HTMLText: NSViewRepresentable {
     
     // normal text
     let p = Style("p").font(.systemFont(ofSize: 16))
+    let code = Style("code")
+        .font(.systemFont(ofSize: 12))
+        .backgroundColor(NSColor(rgb: 0xf6f8fa))
+    let strong = Style("strong").font(.boldSystemFont(ofSize: 16))
     
     func makeNSView(context: Context) -> NSTextField {
-        return NSTextField(labelWithAttributedString: text.style(tags: p).attributedString)
+        return NSTextField(labelWithAttributedString: text.style(tags: p, code, strong).attributedString)
     }
     func updateNSView(_ nsTextField: NSTextField, context: Context) {
         // implement protocol

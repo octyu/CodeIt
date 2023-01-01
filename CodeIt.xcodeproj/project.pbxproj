@@ -21,6 +21,7 @@
 		59279DF5295DE33E0039F233 /* ProblemDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DF4295DE33E0039F233 /* ProblemDifficulty.swift */; };
 		59279DF7295DF85E0039F233 /* ProblemAcState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DF6295DF85E0039F233 /* ProblemAcState.swift */; };
 		59279DF9295E92E00039F233 /* ProblemListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DF8295E92E00039F233 /* ProblemListStore.swift */; };
+		59279DFB2961D5610039F233 /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DFA2961D5610039F233 /* NSColorExtension.swift */; };
 		59472B2D294F23960075D267 /* HtmlText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472B2C294F23960075D267 /* HtmlText.swift */; };
 		59472B30294F29C90075D267 /* Atributika in Frameworks */ = {isa = PBXBuildFile; productRef = 59472B2F294F29C90075D267 /* Atributika */; };
 		599E64F12922807000B59B28 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 599E64F02922807000B59B28 /* KeychainAccess */; };
@@ -68,6 +69,7 @@
 		59279DF4295DE33E0039F233 /* ProblemDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemDifficulty.swift; sourceTree = "<group>"; };
 		59279DF6295DF85E0039F233 /* ProblemAcState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemAcState.swift; sourceTree = "<group>"; };
 		59279DF8295E92E00039F233 /* ProblemListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemListStore.swift; sourceTree = "<group>"; };
+		59279DFA2961D5610039F233 /* NSColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
 		59288A6728F6E67100B06773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		59472B2C294F23960075D267 /* HtmlText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlText.swift; sourceTree = "<group>"; };
 		59B02CE5291A7EA80043A093 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				59472B2C294F23960075D267 /* HtmlText.swift */,
+				59279DFA2961D5610039F233 /* NSColorExtension.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				59E9AF10294EDF710036D5BA /* ProblemDetailView.swift in Sources */,
 				59279DF5295DE33E0039F233 /* ProblemDifficulty.swift in Sources */,
 				59279DF9295E92E00039F233 /* ProblemListStore.swift in Sources */,
+				59279DFB2961D5610039F233 /* NSColorExtension.swift in Sources */,
 				59D61FBB28F7B5D6007E5C42 /* LeetCodeApi.swift in Sources */,
 				59B02CE6291A7EA80043A093 /* SidebarView.swift in Sources */,
 				59472B2D294F23960075D267 /* HtmlText.swift in Sources */,

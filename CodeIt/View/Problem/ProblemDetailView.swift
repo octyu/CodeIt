@@ -16,6 +16,7 @@ struct ProblemDetailView: View {
     
     var body: some View {
         
+        // for scroll
         List {
             VStack {
                 if let detail = problemDetail {
@@ -31,9 +32,8 @@ struct ProblemDetailView: View {
                 }
             }.task {
                 await loadData()
-            }
+            }.padding()
         }
-
     }
     
     func loadData() async {

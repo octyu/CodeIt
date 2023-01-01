@@ -51,6 +51,7 @@ struct ProblemSolutionView: View {
             }
             .padding()
             editor
+                .border(Color.gray, width: 2)
             
             HStack {
                 Text("Status: \(submissionMsg)")
