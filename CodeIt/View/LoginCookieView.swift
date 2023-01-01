@@ -22,38 +22,48 @@ struct LoginCookieView: View {
     var body: some View {
         
         VStack {
-            HStack {
-                Text("Cookie")
-                Spacer()
-            }.padding(EdgeInsets(top: 20, leading: 20, bottom: 10, trailing: 20))
-            
-            
             Form {
-                VStack {
-                
-                    TextEditor(text: $userCookie)
-                        .lineSpacing(1)
-                        .font(.title3)
-                        .border(Color.gray, width: 1)
-                        .frame(minHeight: 20)
-                    
-                    HStack {
-                        Spacer()
-                        
-                        Button {
-                            self.showLoginView.toggle()
-                        } label: {
-                            Text("取消")
-                        }
-                        
-                        Button {
-                            self.showLoginView.toggle()
-                            saveCookie()
-                        } label: {
-                            Text("登陆")
-                        }
+                ZStack(alignment: .leading) {
+                    if userCookie.isEmpty {
+                        VStack {
+                            Text("Input your cookie...")
+                                .padding(.top, 30)
+                                .padding(.leading, 25)
+                                .padding([.top, .horizontal])
+                                .opacity(0.6)
+                                Spacer()
+                        }.zIndex(1)
                     }
-                    
+                    VStack {
+                        TextEditor(text: $userCookie)
+                            .frame(minHeight: 20)
+                            .font(.system(.callout, design: .monospaced))
+                            .lineLimit(20)
+                            .padding(.top, 30)
+                            .padding(.horizontal, 20)
+                            .background(Color(.textBackgroundColor))
+                            .border(Color.primary.opacity(0.25), width: 0.5)
+                            .padding([.top, .horizontal])
+                            .opacity(userCookie.isEmpty ? 0.85 : 1)
+                        
+                        HStack {
+                            Spacer()
+                            
+                            Button {
+                                self.showLoginView.toggle()
+                            } label: {
+                                Text("取消")
+                            }
+                            
+                            Button {
+                                self.showLoginView.toggle()
+                                saveCookie()
+                            } label: {
+                                Text("登陆")
+                            }
+                        }.padding(.horizontal)
+                        
+                    }
                 }
             }.padding([.horizontal, .bottom], 20)
         }.frame(minWidth: 480, minHeight: 270)

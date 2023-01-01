@@ -43,6 +43,28 @@ public struct ProblemDetail: Decodable {
             }
             return dict
         }
+        
+        public func getFormattedContent() -> String {
+            var tmp = self.content
+            tmp = tmp.replacingOccurrences(of: "<code>", with:"`")
+            tmp = tmp.replacingOccurrences(of: "</code>", with:"`")
+            tmp = tmp.replacingOccurrences(of: "<pre>", with:"```")
+            tmp = tmp.replacingOccurrences(of: "</pre>", with:"```")
+            tmp = tmp.replacingOccurrences(of: "<strong>", with:"**")
+            tmp = tmp.replacingOccurrences(of: "<strong class=\"example\">", with:"**")
+            tmp = tmp.replacingOccurrences(of: "</strong>", with:"**")
+            tmp = tmp.replacingOccurrences(of: "<li>", with:"- ")
+            tmp = tmp.replacingOccurrences(of: "</li>", with:"")
+            tmp = tmp.replacingOccurrences(of: "<p>", with:"")
+            tmp = tmp.replacingOccurrences(of: "</p>", with:"")
+            tmp = tmp.replacingOccurrences(of: "<ul>", with:"")
+            tmp = tmp.replacingOccurrences(of: "</ul>", with:"")
+            tmp = tmp.replacingOccurrences(of: "<sup>", with:"")
+            tmp = tmp.replacingOccurrences(of: "</sup>", with:"")
+            tmp = tmp.replacingOccurrences(of: "&quot;", with:"\"")
+            tmp = tmp.replacingOccurrences(of: "&lt;", with:"<")
+            return tmp
+        }
     }
     
     public struct CodeSnippet: Decodable {

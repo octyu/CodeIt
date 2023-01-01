@@ -1,32 +1,88 @@
 {
-  "pins" : [
-    {
-      "identity" : "atributika",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/psharanda/Atributika",
-      "state" : {
-        "revision" : "d018897afbd55d9065ef859650585bac890ada7e",
-        "version" : "4.10.1"
+  "object": {
+    "pins": [
+      {
+        "package": "Atributika",
+        "repositoryURL": "https://github.com/psharanda/Atributika",
+        "state": {
+          "branch": null,
+          "revision": "d018897afbd55d9065ef859650585bac890ada7e",
+          "version": "4.10.1"
+        }
+      },
+      {
+        "package": "AttributedText",
+        "repositoryURL": "https://github.com/gonzalezreal/AttributedText",
+        "state": {
+          "branch": null,
+          "revision": "0e811cb14de367bbd58a94d12259687e5ee08bea",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "combine-schedulers",
+        "repositoryURL": "https://github.com/pointfreeco/combine-schedulers",
+        "state": {
+          "branch": null,
+          "revision": "882ac01eb7ef9e36d4467eb4b1151e74fcef85ab",
+          "version": "0.9.1"
+        }
+      },
+      {
+        "package": "KeychainAccess",
+        "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess",
+        "state": {
+          "branch": null,
+          "revision": "84e546727d66f1adc5439debad16270d0fdd04e7",
+          "version": "4.2.2"
+        }
+      },
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher",
+        "state": {
+          "branch": null,
+          "revision": "44e891bdb61426a95e31492a67c7c0dfad1f87c5",
+          "version": "7.4.1"
+        }
+      },
+      {
+        "package": "MarkdownUI",
+        "repositoryURL": "https://github.com/gonzalezreal/MarkdownUI",
+        "state": {
+          "branch": null,
+          "revision": "6a33c60ad430772d69ac5278e35474d6b3e5d30a",
+          "version": "1.1.1"
+        }
+      },
+      {
+        "package": "NetworkImage",
+        "repositoryURL": "https://github.com/gonzalezreal/NetworkImage",
+        "state": {
+          "branch": null,
+          "revision": "c97f83e771c95186af80ef6118f158852a9e54be",
+          "version": "4.0.1"
+        }
+      },
+      {
+        "package": "SwiftCommonMark",
+        "repositoryURL": "https://github.com/gonzalezreal/SwiftCommonMark",
+        "state": {
+          "branch": null,
+          "revision": "ed252beaddecce28ea6363f800c773d6169011b8",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "xctest-dynamic-overlay",
+        "repositoryURL": "https://github.com/pointfreeco/xctest-dynamic-overlay",
+        "state": {
+          "branch": null,
+          "revision": "a9daebf0bf65981fd159c885d504481a65a75f02",
+          "version": "0.8.0"
+        }
       }
-    },
-    {
-      "identity" : "keychainaccess",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kishikawakatsumi/KeychainAccess",
-      "state" : {
-        "revision" : "84e546727d66f1adc5439debad16270d0fdd04e7",
-        "version" : "4.2.2"
-      }
-    },
-    {
-      "identity" : "kingfisher",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onevcat/Kingfisher",
-      "state" : {
-        "revision" : "44e891bdb61426a95e31492a67c7c0dfad1f87c5",
-        "version" : "7.4.1"
-      }
-    }
-  ],
-  "version" : 2
+    ]
+  },
+  "version": 1
 }

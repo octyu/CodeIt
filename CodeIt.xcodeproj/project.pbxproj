@@ -22,6 +22,7 @@
 		59279DF7295DF85E0039F233 /* ProblemAcState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DF6295DF85E0039F233 /* ProblemAcState.swift */; };
 		59279DF9295E92E00039F233 /* ProblemListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DF8295E92E00039F233 /* ProblemListStore.swift */; };
 		59279DFB2961D5610039F233 /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59279DFA2961D5610039F233 /* NSColorExtension.swift */; };
+		59279E002961E3E70039F233 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 59279DFF2961E3E70039F233 /* MarkdownUI */; };
 		59472B2D294F23960075D267 /* HtmlText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472B2C294F23960075D267 /* HtmlText.swift */; };
 		59472B30294F29C90075D267 /* Atributika in Frameworks */ = {isa = PBXBuildFile; productRef = 59472B2F294F29C90075D267 /* Atributika */; };
 		599E64F12922807000B59B28 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 599E64F02922807000B59B28 /* KeychainAccess */; };
@@ -94,6 +95,7 @@
 				592784DB29227D5E00347BDD /* Kingfisher in Frameworks */,
 				59472B30294F29C90075D267 /* Atributika in Frameworks */,
 				599E64F12922807000B59B28 /* KeychainAccess in Frameworks */,
+				59279E002961E3E70039F233 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +263,7 @@
 				599E64F02922807000B59B28 /* KeychainAccess */,
 				59472B2F294F29C90075D267 /* Atributika */,
 				59FFCE2D2951D9A30044EAB0 /* CodeMirror-SwiftUI */,
+				59279DFF2961E3E70039F233 /* MarkdownUI */,
 			);
 			productName = LeetCoding;
 			productReference = 5917E5DC28F665AD002FBD79 /* CodeIt.app */;
@@ -295,6 +298,7 @@
 				592784D929227D5E00347BDD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				599E64EF2922807000B59B28 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				59472B2E294F29C90075D267 /* XCRemoteSwiftPackageReference "Atributika" */,
+				59279DFE2961E3E70039F233 /* XCRemoteSwiftPackageReference "MarkdownUI" */,
 			);
 			productRefGroup = 5917E5DD28F665AD002FBD79 /* Products */;
 			projectDirPath = "";
@@ -556,6 +560,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		59279DFE2961E3E70039F233 /* XCRemoteSwiftPackageReference "MarkdownUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/MarkdownUI";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.1;
+			};
+		};
 		59472B2E294F29C90075D267 /* XCRemoteSwiftPackageReference "Atributika" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/psharanda/Atributika";
@@ -579,6 +591,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 592784D929227D5E00347BDD /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		59279DFF2961E3E70039F233 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 59279DFE2961E3E70039F233 /* XCRemoteSwiftPackageReference "MarkdownUI" */;
+			productName = MarkdownUI;
 		};
 		59472B2F294F29C90075D267 /* Atributika */ = {
 			isa = XCSwiftPackageProductDependency;
