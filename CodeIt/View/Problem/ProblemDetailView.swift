@@ -39,7 +39,7 @@ struct ProblemDetailView: View {
                   .padding([.top, .horizontal])
 
                 ScrollView {
-                  Markdown(text)
+                    Markdown(text)
                     .padding()
                 }
                 .border(Color.primary.opacity(0.25), width: 0.5)
@@ -53,7 +53,6 @@ struct ProblemDetailView: View {
                         Spacer()
                     }
 //                    HTMLText(text: detail.content)
-                    Markdown("You can try **CommonMark:** [here](https://spec.commonmark.org/dingus/).")
                     Markdown(detail.getFormattedContent())
                     Spacer()
                     ProblemSolutionView(problemDetail: detail)

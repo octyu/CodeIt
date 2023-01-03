@@ -27,8 +27,7 @@ struct LoginCookieView: View {
                     if userCookie.isEmpty {
                         VStack {
                             Text("Input your cookie...")
-                                .padding(.top, 30)
-                                .padding(.leading, 25)
+                                .padding()
                                 .padding([.top, .horizontal])
                                 .opacity(0.6)
                                 Spacer()
@@ -39,8 +38,7 @@ struct LoginCookieView: View {
                             .frame(minHeight: 20)
                             .font(.system(.callout, design: .monospaced))
                             .lineLimit(20)
-                            .padding(.top, 30)
-                            .padding(.horizontal, 20)
+                            .padding()
                             .background(Color(.textBackgroundColor))
                             .border(Color.primary.opacity(0.25), width: 0.5)
                             .padding([.top, .horizontal])

@@ -55,6 +55,8 @@ public struct ProblemDetail: Decodable {
             tmp = tmp.replacingOccurrences(of: "</strong>", with:"**")
             tmp = tmp.replacingOccurrences(of: "<li>", with:"- ")
             tmp = tmp.replacingOccurrences(of: "</li>", with:"")
+            tmp = tmp.replacingOccurrences(of: "\t", with:"")
+            tmp = tmp.replacingOccurrences(of: "&nbsp;", with:"")
             tmp = tmp.replacingOccurrences(of: "<p>", with:"")
             tmp = tmp.replacingOccurrences(of: "</p>", with:"")
             tmp = tmp.replacingOccurrences(of: "<ul>", with:"")
