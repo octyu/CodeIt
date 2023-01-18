@@ -13,6 +13,7 @@ public class ProblemListStore: ObservableObject {
     
     @Published var data = [ProblemList.Problem]()
     @Published var count = 0
+    @Published var totalCount = 0
     
     public init() {
         loadData()
@@ -23,8 +24,9 @@ public class ProblemListStore: ObservableObject {
             do {
                 if let res = try await leetCode.getProblemList(skipNum: count) {
                     DispatchQueue.main.async {
-                        self.data += res.data.problemList.questions
-                        self.count += res.data.problemList.questions.count
+                        self.data = res.data.problemList.questions
+                        self.count = res.data.problemList.questions.count
+                        self.totalCount = res.data.problemList.total
                     }
                 }
             } catch {

@@ -14,14 +14,17 @@ struct CodeItApp: App {
     var body: some Scene {
         
         WindowGroup {
-            NavigationView {
-                SidebarView()
+            HStack {
+                NavigationView {
+                    SidebarView()
+                }
+                .environmentObject(CurrentUserStore.shared)
+                .environmentObject(ProblemListStore.shared)
+                
+                
             }
-            .environmentObject(CurrentUserStore.shared)
-            .environmentObject(ProblemListStore.shared)
-            
         }
-//        .windowStyle(HiddenTitleBarWindowStyle())
+        .windowStyle(HiddenTitleBarWindowStyle())
 
     }
 }
