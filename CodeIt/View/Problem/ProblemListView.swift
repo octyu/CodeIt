@@ -14,9 +14,6 @@ struct ProblemListView: View {
     
     @State private var sortOrder = [KeyPathComparator(\ProblemList.Problem.id)]
     @State private var selectedProblem: String?
-    @State private var curPage = 1
-    @State private var pageSize = 50
-    @State public var pageInfo: [String]
     
     var sortedProblems: [ProblemList.Problem] {
         return problemStore.data.sorted(using: sortOrder)
@@ -38,63 +35,52 @@ struct ProblemListView: View {
     var tableView: some View {
         // table use: https://www.fatbobman.com/posts/table_in_SwiftUI/
         VStack {
-            Table(sortedProblems, selection: $selectedProblem, sortOrder: $sortOrder) {
-                TableColumn("No", value: \.id) { problem in
-                    Text("\(problem.id)")
-                        .frame(alignment: .center)
-                        .padding(.vertical, 6)
-                        .padding(.leading, 2)
-                }.width(24)
-                TableColumn("Title") { problem in
-                    Text("\(problem.title)")
-                        .padding(.vertical, 6)
-                        .padding(.leading, 2)
-                }
-                TableColumn("Solutions") { problem in
-                    Text("\(problem.solutionNum)")
-                        .padding(.vertical, 6)
-                        .padding(.leading, 2)
-                }.width(50)
-                TableColumn("Ac Rate") { problem in
-                    Text("\(problem.acRatePercent())")
-                        .padding(.vertical, 6)
-                        .padding(.leading, 2)
-                }.width(50)
-                TableColumn("Difficulty") { problem in
-                    Text("\(problem.difficulty.rawValue)")
-                        .foregroundColor(problem.difficulty.color())
-                        .padding(.vertical, 6)
-                        .padding(.leading, 2)
-                }.width(72)
-            }
-            HStack {
-                Spacer()
-                Button {
-                    
-                } label: {
-                    Image(systemName: "chevron.left")
-                }.buttonStyle(.bordered)
-                    .disabled(curPage == 1)
-                
-                ForEach(0..<pageInfo.count, id: \.self) { i in
-                    Button {
-                        
-                    } label: {
-                        Text(pageInfo[i])
-                    }.buttonStyle(.bordered)
-                        .disabled(pageInfo[i] == "...")
-                }
+            internalTable
 
-                Button {
-                    
-                } label: {
-                    Image(systemName: "chevron.right")
-                }.buttonStyle(.bordered)
+            TablePage(curPage: $problemStore.curPage,
+                      pageSize: $problemStore.pageSize,
+                      totalCount: $problemStore.totalCount,
+                      pageCount: $problemStore.pageCount,
+                      pageInfo: $problemStore.pageInfo) {page in
+                problemStore.loadData()
+                problemStore.refreshPageInfo()
             }
             .padding(.trailing, 12)
             .padding(.bottom, 5)
         }.frame(minWidth: 600)
 
+    }
+    
+    var internalTable: some View {
+        Table(sortedProblems, selection: $selectedProblem, sortOrder: $sortOrder) {
+            TableColumn("No", value: \.id) { problem in
+                Text("\(problem.id)")
+                    .frame(alignment: .center)
+                    .padding(.vertical, 6)
+                    .padding(.leading, 2)
+            }.width(ideal: 32)
+            TableColumn("Title") { problem in
+                Text("\(problem.title)")
+                    .padding(.vertical, 6)
+                    .padding(.leading, 2)
+            }
+            TableColumn("Solutions") { problem in
+                Text("\(problem.solutionNum)")
+                    .padding(.vertical, 6)
+                    .padding(.leading, 2)
+            }.width(50)
+            TableColumn("Ac Rate") { problem in
+                Text("\(problem.acRatePercent())")
+                    .padding(.vertical, 6)
+                    .padding(.leading, 2)
+            }.width(50)
+            TableColumn("Difficulty") { problem in
+                Text("\(problem.difficulty.rawValue)")
+                    .foregroundColor(problem.difficulty.color())
+                    .padding(.vertical, 6)
+                    .padding(.leading, 2)
+            }.width(72)
+        }
     }
     
     var problemListV1View: some View {
@@ -137,4 +123,6 @@ struct ProblemListView: View {
     func toggleSidebar() {
         NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
     }
+    
+
 }

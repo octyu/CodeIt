@@ -18,13 +18,15 @@ struct SidebarView: View {
     @State var showLoginView = false
     @State var userCookie = ""
     
+    @State var pageSize = 50
+    
     var body: some View {
         
         VStack {
             
             List() {
                 Section() {
-                    NavigationLink(destination: ProblemListView(problemStore: problemList, pageInfo: computePageInfo()), tag: 0, selection: $selection) {
+                    NavigationLink(destination: ProblemListView(problemStore: problemList), tag: 0, selection: $selection) {
                         Label("Problems", systemImage: "doc.text")
                     }
                     NavigationLink(destination: TestView()) {
@@ -90,11 +92,5 @@ struct SidebarView: View {
             }
             
         }.padding(20)
-    }
-    
-    func computePageInfo() -> [String] {
-        var array = ["1", "2", "3", "...", "24"]
-        var pageCount = Int(ceil(Double(problemList.totalCount) / Double(self.pageSize)))
-        return array
     }
 }
